@@ -7,7 +7,7 @@ import { WebGLMultisampleRenderTarget } from 'three'
 // Loading
 const textureLoader = new THREE.TextureLoader()
 
-const normalTexture = textureLoader.load('/textures/NormalMap3.png')
+const normalTexture = textureLoader.load('/textures/NormalMap2.png')
 
 // Debug
 const gui = new dat.GUI()
@@ -145,15 +145,39 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * Animate
  */
 
+let mouseX = 0
+let mouseY = 0
+
+let targetX = 0
+let targetY = 0
+
+let windowHalfX = window.innerWidth / 2
+let windowHalfY = window.innerHeight / 2
+
+function onDocumentMouseMove(event){
+    mouseX = event.clientX - windowHalfX
+    mouseY = event.clientY - windowHalfY
+}
+
+document.addEventListener('mousemove', onDocumentMouseMove)
+
+
 const clock = new THREE.Clock()
 
 const tick = () =>
 {
+    targetX = mouseX * .001
+    targetY = mouseY * .001
 
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
     sphere.rotation.y = .5 * elapsedTime
+    
+    sphere.rotation.x += .05 * (targetY - sphere.rotation.x)
+    sphere.rotation.y += .5 * (targetX - sphere.rotation.y)
+    sphere.rotation.z += -.05 * (targetY - sphere.rotation.x)
+
 
     // Update Orbital Controls
     // controls.update()
