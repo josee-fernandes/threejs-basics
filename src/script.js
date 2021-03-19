@@ -167,8 +167,9 @@ let minPositionY = pointLight2.position.y * .5
 
 const updateElements = event => {
     sphere.position.y = window.scrollY * .0015
-    pointLight2.position.y = window.scrollY * .01 - 3
-    pointLight3.position.y = ((window.scrollY * .01) * -1) + 1.7
+    pointLight2.position.y = window.scrollY * .01 - 3 // sobe
+    pointLight3.position.y = ((window.scrollY * .01) * -1) + 1.7 // desce
+    sphere.position.z = window.scrollY * .001
 }
 
 window.addEventListener('scroll', updateElements)

@@ -25,6 +25,7 @@ body{
     outline: none;
     /* mix-blend-mode: exclusion; */
     z-index: -1;
+    background-image: radial-gradient(#1b1b1b, black)
 }
 
 .container{
@@ -34,13 +35,13 @@ body{
 }
 
 h1{
-    font-size: 8rem;
+    font-size: 5rem;
     text-transform: uppercase;
     color: white;
-    mix-blend-mode: difference;
-    text-shadow: 1px 0 0 white;
+    text-align: center;
 }
 
 section{
     height: 100vh;
+    background-color: black;
 }
