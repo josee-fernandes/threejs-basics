@@ -11,6 +11,10 @@ body
     font-family: 'Poppins';
 }
 
+body{
+    overflow-x: hidden;
+}
+
 .webgl
 {
     position: fixed;
