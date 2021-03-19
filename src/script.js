@@ -2,6 +2,7 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
+import { WebGLMultisampleRenderTarget } from 'three'
 
 // Loading
 const textureLoader = new THREE.TextureLoader()
@@ -40,6 +41,58 @@ pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
 scene.add(pointLight)
+
+// Light 2
+
+const pointLight2 = new THREE.PointLight(0x1840c5, 2)
+pointLight2.position.set(-1.13, -3, -1.06)
+pointLight2.intensity = 10
+
+scene.add(pointLight2)
+
+const light2 = gui.addFolder('Light 2')
+
+light2.add(pointLight2.position, 'x').min(-7).max(7).step(.01)
+light2.add(pointLight2.position, 'y').min(-7).max(7).step(.01)
+light2.add(pointLight2.position, 'z').min(-7).max(7).step(.01)
+light2.add(pointLight2, 'intensity').min(0).max(10).step(.01)
+
+const light2Color = {
+    color: 0xff0000
+}
+
+light2.addColor(light2Color, 'color')
+    .onChange(() => pointLight2.color.set(light2Color.color))
+
+const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 1)
+scene.add(pointLightHelper2)
+
+
+// Light 3
+
+const pointLight3 = new THREE.PointLight(0xd925d9, 2)
+pointLight3.position.set(2, 1.71, -2.31)
+pointLight3.intensity = 1.48
+
+scene.add(pointLight3)
+
+const light3 = gui.addFolder('Light 3')
+
+light3.add(pointLight3.position, 'x').min(-7).max(7).step(.01)
+light3.add(pointLight3.position, 'y').min(-7).max(7).step(.01)
+light3.add(pointLight3.position, 'z').min(-7).max(7).step(.01)
+light3.add(pointLight3, 'intensity').min(0).max(10).step(.01)
+
+const light3Color = {
+    color: 0xff0000
+}
+
+const pointLightHelper3 = new THREE.PointLightHelper(pointLight3, 1)
+scene.add(pointLightHelper3)
+
+light3.addColor(light2Color, 'color')
+    .onChange(() => pointLight3.color.set(light3Color.color))
+
 
 /**
  * Sizes
