@@ -53,7 +53,7 @@ scene.add(pointLight2)
 const light2 = gui.addFolder('Light 2')
 
 light2.add(pointLight2.position, 'x').min(-7).max(7).step(.01)
-light2.add(pointLight2.position, 'y').min(-7).max(7).step(.01)
+// light2.add(pointLight2.position, 'y').min(-7).max(7).step(.01)
 light2.add(pointLight2.position, 'z').min(-7).max(7).step(.01)
 light2.add(pointLight2, 'intensity').min(0).max(10).step(.01)
 
@@ -79,7 +79,7 @@ scene.add(pointLight3)
 const light3 = gui.addFolder('Light 3')
 
 light3.add(pointLight3.position, 'x').min(-7).max(7).step(.01)
-light3.add(pointLight3.position, 'y').min(-7).max(7).step(.01)
+// light3.add(pointLight3.position, 'y').min(-7).max(7).step(.01)
 light3.add(pointLight3.position, 'z').min(-7).max(7).step(.01)
 light3.add(pointLight3, 'intensity').min(0).max(10).step(.01)
 
@@ -90,7 +90,7 @@ const light3Color = {
 const pointLightHelper3 = new THREE.PointLightHelper(pointLight3, 1)
 // scene.add(pointLightHelper3)
 
-light3.addColor(light2Color, 'color')
+light3.addColor(light3Color, 'color')
     .onChange(() => pointLight3.color.set(light3Color.color))
 
 

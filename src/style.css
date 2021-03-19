@@ -37,6 +37,8 @@ h1{
     font-size: 8rem;
     text-transform: uppercase;
     color: white;
+    mix-blend-mode: difference;
+    text-shadow: 1px 0 0 white;
 }
 
 section{
