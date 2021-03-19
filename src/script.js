@@ -65,7 +65,7 @@ light2.addColor(light2Color, 'color')
     .onChange(() => pointLight2.color.set(light2Color.color))
 
 const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 1)
-scene.add(pointLightHelper2)
+// scene.add(pointLightHelper2)
 
 
 // Light 3
@@ -88,7 +88,7 @@ const light3Color = {
 }
 
 const pointLightHelper3 = new THREE.PointLightHelper(pointLight3, 1)
-scene.add(pointLightHelper3)
+// scene.add(pointLightHelper3)
 
 light3.addColor(light2Color, 'color')
     .onChange(() => pointLight3.color.set(light3Color.color))
@@ -161,11 +161,17 @@ const onDocumentMouseMove = event => {
 
 document.addEventListener('mousemove', onDocumentMouseMove)
 
-const updateSphere = event => {
-    sphere.position.y = window.scrollY * .001
+
+let maxPositionY = pointLight2.position.y * 2
+let minPositionY = pointLight2.position.y * .5
+
+const updateElements = event => {
+    sphere.position.y = window.scrollY * .0015
+    pointLight2.position.y = window.scrollY * .01 - 3
+    pointLight3.position.y = ((window.scrollY * .01) * -1) + 1.7
 }
 
-window.addEventListener('scroll', updateSphere)
+window.addEventListener('scroll', updateElements)
 
 
 const clock = new THREE.Clock()
